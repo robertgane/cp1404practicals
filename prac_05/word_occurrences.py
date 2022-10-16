@@ -1,8 +1,8 @@
 """
 CP1404 Practical 5
 Word Occurrences
-Estimate: 1 second
-Actual: 0.2 seconds
+Estimate: 10 minutes
+Actual: 7 minutes
 """
 
 word_to_count = {}

@@ -1,8 +1,8 @@
 """
 CP1404 Practical 5
 Emails
-Estimate: 0.5 seconds
-Actual: 0.5 seconds
+Estimate: 15 minutes
+Actual: 24 minutes
 """
 
 
@@ -23,8 +23,8 @@ def main():
 
 def get_name_from_email(email):
     """Determine possible name from email"""
-    first_part = email.split('@')[0]
-    parts = first_part.split('.')
+    prefix = email.split('@')[0]
+    parts = prefix.split('.')
     name = " ".join(parts).title()
     return name
 
