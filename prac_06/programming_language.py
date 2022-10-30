@@ -1,4 +1,7 @@
-"""CP1404/CP5632 Practical - Programming language."""
+"""CP1404/CP5632 Practical - Programming language.
+Estimate: 15 mins
+Actual: 23 mins
+"""
 
 
 class ProgrammingLanguage:
