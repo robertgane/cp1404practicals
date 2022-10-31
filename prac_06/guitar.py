@@ -1,3 +1,13 @@
+"""
+CP1404/CP5632 Practical - Guitar program.
+Estimate = 10 mins
+Actual = 4 mins
+"""
+
+CURRENT_YEAR = 2022
+VINTAGE_AGE = 50
+
+
 class Guitar:
 
     def __init__(self, name="", year=0, cost=0):
@@ -9,9 +19,7 @@ class Guitar:
         return f"{self.name} ({self.year}) : ${self.cost:,}"
 
     def get_age(self):
-        current_year = 2022
-        age = current_year - self.year
-        return age
+        return CURRENT_YEAR - self.year
 
     def is_vintage(self):
-        return self.get_age() >= 50
+        return self.get_age() >= VINTAGE_AGE
