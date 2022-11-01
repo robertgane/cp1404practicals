@@ -8,6 +8,7 @@ from prac_06.guitar import Guitar
 
 
 def main():
+    """Get Guitars until user enters empty string, then display details"""
     guitars = []
     print("My guitars!")
     name = input("Name: ")

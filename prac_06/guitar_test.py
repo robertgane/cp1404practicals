@@ -8,6 +8,7 @@ from prac_06.guitar import Guitar
 
 
 def run_tests():
+    """Run test"""
     gibson = Guitar("Gibson L-5 CES", 1922, 16035.40)
     another = Guitar("Another Guitar", 2013, 8453.60)
     print(f"{gibson.name} get_age() - Expected 100. Got {gibson.get_age()}")

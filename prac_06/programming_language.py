@@ -1,4 +1,5 @@
-"""CP1404/CP5632 Practical - Programming language.
+"""
+CP1404/CP5632 Practical - Programming language.
 Estimate: 15 mins
 Actual: 23 mins
 """
@@ -18,4 +19,5 @@ class ProgrammingLanguage:
         return f"{self.field}, {self.typing} Typing, Reflection={self.reflection}, First appeared in {self.year}"
 
     def is_dynamic(self):
+        """Determine if Programming Language is dynamic"""
         return self.typing == "Dynamic"
