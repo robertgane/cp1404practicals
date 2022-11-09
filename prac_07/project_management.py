@@ -2,6 +2,7 @@
 CP1404/CP5632 Practical - Project Management Program.
 """
 from prac_07.project import Project
+import datetime
 
 FILENAME = "../prac_07/projects.txt"
 HEADER = "Name	Start Date	Priority	Cost Estimate	Completion Percentage"
@@ -24,7 +25,7 @@ def main():
         elif menu_choice == "D":
             display_projects(projects)
         elif menu_choice == "F":
-            filter_projects()
+            filter_projects(projects)
         elif menu_choice == "A":
             add_new_project()
         elif menu_choice == "U":
@@ -67,8 +68,15 @@ def display_projects(projects):
         print(f"\t{project}")
 
 
-def filter_projects():
-    pass
+def filter_projects(projects):
+    """Filter projects by date."""
+    date_string = input("Show projects that start after date (dd/mm/yyyy): ")
+    date = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
+    for project in projects:
+        projects = sorted(projects, key=lambda x: datetime.datetime.strptime(f"{project.start_date}", "%d/%m/%Y"),
+                          reverse=False)
+        if datetime.datetime.strptime(project.start_date, "%d/%m/%Y").date() > date:
+            print(project)
 
 
 def add_new_project():
