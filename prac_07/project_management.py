@@ -4,6 +4,7 @@ CP1404/CP5632 Practical - Project Management Program.
 from prac_07.project import Project
 
 FILENAME = "../prac_07/projects.txt"
+HEADER = "Name	Start Date	Priority	Cost Estimate	Completion Percentage"
 MENU = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter projects by date\n- " \
        "(A)dd new project\n- (U)pdate project\n- (Q)uit"
 
@@ -11,13 +12,15 @@ MENU = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter p
 def main():
     """Displays project_management program."""
     projects = []
+    load_file(FILENAME, projects)
     print(MENU)
     menu_choice = input(">>> ").upper()
     while menu_choice != "Q":
         if menu_choice == "L":
-            load_file(FILENAME, projects)
+            filename = input("Enter filename to load projects from: ")
+            load_file(filename, projects)
         elif menu_choice == "S":
-            save_project()
+            save_project(FILENAME, projects)
         elif menu_choice == "D":
             display_projects()
         elif menu_choice == "F":
@@ -40,8 +43,13 @@ def load_file(filename, projects):
             projects.append(Project(parts[0], parts[1], int(parts[2]), float(parts[3]), int(parts[4])))
 
 
-def save_project():
-    pass
+def save_project(filename, projects):
+    """Save projects into file"""
+    with open(filename, 'w') as out_file:
+        print(HEADER, file=out_file)
+        for project in projects:
+            print(f"{project.name}\t{project.start_date}\t{project.priority}\t{project.estimate}\t{project.completion}",
+                  file=out_file)
 
 
 def display_projects():
