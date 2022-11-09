@@ -3,6 +3,7 @@
 ## Brief
 
 This repository is filled with practicals involving python code.
+A bit about me, I love basketball and my favourite food is spaghetti :)
 
 ## Clean Code
 
