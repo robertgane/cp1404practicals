@@ -29,7 +29,7 @@ def main():
         elif menu_choice == "A":
             add_new_project(projects)
         elif menu_choice == "U":
-            update_projects()
+            update_projects(projects)
         else:
             print("Invalid menu choice")
         print(MENU)
@@ -92,8 +92,36 @@ def add_new_project(projects):
     print(f"{name} project added.")
 
 
-def update_projects():
-    pass
+def update_projects(projects):
+    """Update project by user choice."""
+    for index, project in enumerate(projects):
+        print(f"{index} {project}")
+    index = get_valid_number("Project choice: ", len(projects) - 1)
+    print(projects[index])
+    new_percentage = get_valid_number("New Percentage (0-100): ", 100)
+    new_priority = get_valid_number("New Priority(0-9): ", 9)
+    projects[index].priority = new_priority
+    projects[index].percentage_completed = new_percentage
+    print(f"project {index} updated.")
+
+
+def get_valid_number(prompt, maximum_value):
+    """Get valid number from user."""
+    is_finished = False
+    number = 0
+    while not is_finished:
+        try:
+            number = int(input(prompt))
+            while number < 0 or number > maximum_value:
+                if number < 0:
+                    print("Number must be >= 0")
+                elif number >= maximum_value:
+                    print("Number out of range")
+                number = int(input(prompt))
+            is_finished = True
+        except ValueError:
+            print("Invalid input; enter a valid number")
+    return number
 
 
 main()
