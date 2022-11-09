@@ -22,7 +22,7 @@ def main():
         elif menu_choice == "S":
             save_project(FILENAME, projects)
         elif menu_choice == "D":
-            display_projects()
+            display_projects(projects)
         elif menu_choice == "F":
             filter_projects()
         elif menu_choice == "A":
@@ -31,7 +31,9 @@ def main():
             update_projects()
         else:
             print("Invalid menu choice")
+        print(MENU)
         menu_choice = input(">>> ").upper()
+    print("Thank you for using custom-built project management software.")
 
 
 def load_file(filename, projects):
@@ -52,8 +54,17 @@ def save_project(filename, projects):
                   file=out_file)
 
 
-def display_projects():
-    pass
+def display_projects(projects):
+    """Display projects sorted by priority."""
+    projects.sort()
+    completed_projects = [project for project in projects if project.is_complete()]
+    incomplete_projects = [project for project in projects if not project.is_complete()]
+    print("Incomplete projects: ")
+    for project in incomplete_projects:
+        print(f"\t{project}")
+    print("Complete projects: ")
+    for project in completed_projects:
+        print(f"\t{project}")
 
 
 def filter_projects():
