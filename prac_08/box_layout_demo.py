@@ -1,6 +1,5 @@
 from kivy.app import App
 from kivy.lang import Builder
-import random
 
 
 class BoxLayoutDemo(App):
